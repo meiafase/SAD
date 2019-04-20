@@ -32,7 +32,7 @@
 				$sistemas = $fusca -> prepare($sql);
 				$sistemas -> execute(array($id, $sistema, $resp1, $resp2, $resp3, $resp4, $resp5, $resp6, $resp7, $resp8, $resp9, $resp10, $resp_cntd));
 
-				header("location: verifica.php?id=$id&resp_cntd=$resp_cntd&resp1=$resp1&resp2=$resp2&resp3=$resp3&resp4=$resp4&resp5=$resp5&resp6=$resp6&resp7=$resp7&resp8=$resp8&resp9=$resp9&resp10=$resp10&resp_cntd=$resp_cntd");
+				header("location: verifica.php?id=$id&resp_cntd=$resp_cntd&resp1=$resp1&resp2=$resp2&resp3=$resp3&resp4=$resp4&resp5=$resp5&resp6=$resp6&resp7=$resp7&resp8=$resp8&resp9=$resp9&resp10=$resp10");
 
 		   }
 
@@ -283,7 +283,7 @@
 				<label>3) Você costuma tirar muitas fotos?</label><br>
 				<input type="radio" name="perq3" value="1" class="input-dominio"> Não sei</input><br>
 				<input type="radio" name="perq3" value="2" class="input-dominio"> Não</input><br>
-				<input type="radio" name="perq3" value="3" class="input-dominio"> Talez</input><br>
+				<input type="radio" name="perq3" value="3" class="input-dominio"> Talvez</input><br>
 				<input type="radio" name="perq3" value="4" class="input-dominio"> Sim</input><br>
 				<input type="radio" name="perq3" value="5" class="input-dominio"> Muitooooooooo!!!!!!!!!!!</input><br><br>
 				
@@ -366,8 +366,6 @@
 				<input type="submit" value="Enviar" id="enviarandroid" name="enviarandroid" class="btn btn-success">
 			</div>
 		</form>
-
-	
 	
 	</body>
 </html>

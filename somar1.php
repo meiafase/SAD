@@ -22,5 +22,5 @@
 	$sad -> execute();
 	$fusca = NULL;
 		
-		header("location: index.php");
+		header("location: pgagradece.php");
 ?>
