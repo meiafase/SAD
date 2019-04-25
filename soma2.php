@@ -10,21 +10,24 @@
 			$agree = $v['agree'];
 			$disagree = $v['disagree'];
 		}
-		$acrescenta = $agree + 1;
+		echo $agree;
+		echo "<br>";
+		echo $disagree;
+		echo "<br>";
 		
-		$xesque = ($acrescenta + $disagree);
+		$acrescenta2 = $disagree + 1;
+		
+		$xesque = ($acrescenta2 + $agree);
 
-		$dale = 100 * $acrescenta / $xesque;
-		
+		$dale = 100 * $acrescenta2 / $xesque;
 
 	$sql = "UPDATE resultado_tb 
         SET
-        agree = '$acrescenta', aceitacao = $dale
+        disagree = '$acrescenta2', aceitacao = $dale
         WHERE 
         id_resultado = '$id_resultado'"; 
 	$sad = $fusca -> prepare($sql);
 	$sad -> execute();
 	$fusca = NULL;
 		
-	echo $media;
 ?>

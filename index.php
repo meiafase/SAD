@@ -255,7 +255,7 @@
 			<div id="div" class="divs">
 				<label>1) Você prefere Android ou IOS?</label><br>
 				<input type="radio" id="sistema" name="sistema" value="10" onclick="android()"required>Android</input><br>
-				<input type="radio" id="sistema" name="sistema" value="100" onclick="ios()" required>IOS</input><br>
+				<input type="radio" id="sistema" name="sistema" value="100" onclick="android()" required>IOS</input><br>
 				
 			</div>
 			

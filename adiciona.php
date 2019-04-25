@@ -30,10 +30,10 @@
 	$sql =  "INSERT INTO 
 			resultado_tb 
 			VALUES
-				  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				include "conexao.php";
 			$sistemas = $fusca -> prepare($sql);
-			$sistemas -> execute(array($id, $resp1, $resp2, $resp3, $resp4, $resp5, $resp6, $resp7, $resp8, $resp9, $resp10, $sistema_operacional, $modelo_cllr, $resp_cntd));
+			$sistemas -> execute(array($id, $resp1, $resp2, $resp3, $resp4, $resp5, $resp6, $resp7, $resp8, $resp9, $resp10, $sistema_operacional, $modelo_cllr, $resp_cntd, null, null, null));
 
 			if($sql){			
 				echo "<script> alert('Obrigado pela colaboração ;D'); 

@@ -1,4 +1,5 @@
 <?php
+
 	$resp1		= $_GET["resp1"];
 	$resp2		= $_GET["resp2"];
 	$resp3		= $_GET["resp3"];
@@ -10,6 +11,9 @@
 	$resp9		= $_GET["resp9"];
 	$resp10		= $_GET["resp10"];
 	$resp_cntd 	= $_GET['resp_cntd'];
+	
+	
+	
 
 	$sql = "SELECT * FROM resultado_tb where resp_cntd='$resp_cntd'";
 	include "conexao.php";
@@ -38,9 +42,11 @@
 		?></div><?php
 		?><div id="resp"><?php
 		foreach($sad as $v){
+			$id_resultado	=$v ['id_resultado'];
 			$modelo_cllr = $v['modelo_cllr'];
 			$nome_cllr = $v['nome_cllr'];
-
+			
+			
 		echo "Oque achou desse?";
 		echo "<h3> Modelo: ".$modelo_cllr."<h3>";
 		echo "<br>";
@@ -50,21 +56,62 @@
 
 		?><img src="imgs/gostou1.png" id="img"><?php
 
+		include "conexao.php";
+	$sql1 = "SELECT agree, disagree, COUNT(agree) AS quantidade, COUNT(disagree) AS quantidade FROM resultado_tb GROUP BY agree, disagree";
+	$sad = $fusca -> prepare($sql1);
+	$sad -> execute();
+
+	$x = 1;
+	 foreach($sad as $v){
+		 $bola[$x] = $v['quantidade'];
+	 
+	 echo "<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Agree',     ".@$bola[1]."],
+          ['Disagree',     ".@$bola[1]."],
+
+        ]);
+
+        var options = {
+          title: 'Porcentagens de Generos',
+          backgroundColor: 'transparent'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>";
+	  $x++;
+	  }?>
+		</div>
+		
+		    <div id="piechart"></div>
+
+<?php
+
+
+
+
+
 		echo"<h2>Gostou da sujestão?</h2><br>
-		<button id='sim' onclick='btn(1)'>Gostei</button>
-		<button id='nao'onclick='btn(2)'>Não gostei</button>
+		<button id='sim' onclick='sim()'>Gostei</button>
+		<button id='nao'onclick='nao()'>Não gostei</button>
 		<script>	
-		function btn(a){
-			if (a == 1){
-				alert('Obrigado pela resposta!');
-				window.location.href = 'somar1.php?modelo_cllr=$modelo_cllr';
+		function sim(){
+				window.location.href = 'somar1.php?id_resultado=$id_resultado';
 			}
-			else if (a == 2){
-				alert('Obrigado pela resposta!');
-				window.location.href = 'somar2.php?modelo_cllr=$modelo_cllr';
+			function nao(){
+				window.location.href = 'soma2.php?id_resultado=$id_resultado';
 			}
 			
-		}
 		</script>";	
 		echo "<br>";
 		echo "<br>";
@@ -93,7 +140,6 @@
 			window.location.href = 'pgagradece.php';
 		}
 		</script>";
-		echo "<script> alert($resp_cntd); </script>";
 	 }
 	 ?></div>
     <!DOCTYPE html>
