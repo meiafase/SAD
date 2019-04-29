@@ -29,11 +29,11 @@
 		<div id="titulo">
 		<?php
 
-		echo "<h1>Celulares recomendados para você</h1>";
+		echo "<h2>Celulares recomendados para você</h2>";
 		echo "<br>";
 		echo "<br>";
 
-		echo "<h2>Agora nos diga qual sujestão você mais gostou.</h2>";
+		echo "<h3>Agora nos diga qual sujestão você mais gostou.</h3>";
 		echo "<br>";
 		echo "<br>";
 		echo "<br>";
@@ -45,16 +45,22 @@
 			$id_resultado	=$v ['id_resultado'];
 			$modelo_cllr = $v['modelo_cllr'];
 			$nome_cllr = $v['nome_cllr'];
+			$novo_nome = $v['arquivo'];
 			
-			
-		echo "Oque achou desse?";
+		echo "<h2>Oque achou desse?</h2>";
+		echo "<br>";
 		echo "<h3> Modelo: ".$modelo_cllr."<h3>";
 		echo "<br>";
 		echo "<h3> Nome do celular: ".$nome_cllr."<h3>";
 		echo "<br>";
-		echo "<br>";
+		?><span id="cllr"><?php
+        echo "<img src='upload/$novo_nome' id='img'>";
+        ?></span><?php
+        ?><span id="desc" style="float: right; width: 60%;background-color: red;"><?php
+        	echo "<p><h5> descrição do celular. <h5></p>";
+        ?></span><?php
 
-		?><img src="imgs/gostou1.png" id="img"><?php
+		echo "<br>";
 
 		include "conexao.php";
 	$sql1 = "SELECT agree, disagree, COUNT(agree) AS quantidade, COUNT(disagree) AS quantidade FROM resultado_tb GROUP BY agree, disagree";
@@ -75,12 +81,12 @@
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Agree',     ".@$bola[1]."],
-          ['Disagree',     ".@$bola[1]."],
+          ['Disagree',     ".@$bola[2]."],
 
         ]);
 
         var options = {
-          title: 'Porcentagens de Generos',
+          title: 'Porcentagens de aceitação',
           backgroundColor: 'transparent'
         };
 
@@ -102,8 +108,8 @@
 
 
 		echo"<h2>Gostou da sujestão?</h2><br>
-		<button id='sim' onclick='sim()'>Gostei</button>
-		<button id='nao'onclick='nao()'>Não gostei</button>
+		<button id='sim' onclick='sim()' class='btn btn-success'>Gostei</button>
+		<button id='nao'onclick='nao()' class='btn btn-danger'>Não gostei</button>
 		<script>	
 		function sim(){
 				window.location.href = 'somar1.php?id_resultado=$id_resultado';
@@ -129,9 +135,9 @@
 	}else{
 		?><div id="pegageral"><?php
 
-		echo "<h2>Desculpa, não encontramos uma sujestão. Gostaria de adicionar uma resposta?</h2>
-		<button id='sim' onclick='adicionar()'>Gostaria</button>
-		<button id='nao' onclick='cancela()'>Não, obrigado</button>
+		echo "<h2>Desculpa, não encontramos uma sujestão. Gostaria de adicionar uma resposta?</h2><br>
+		<button id='sim' onclick='adicionar()' class='btn btn-success'>Gostaria</button>
+		<button id='nao' onclick='cancela()' class='btn btn-danger'>Não, obrigado</button>
 		<script>
 		function adicionar(){
 			window.location.href = 'adiciona.php?resp_cntd=$resp_cntd&resp1=$resp1&resp2=$resp2&resp3=$resp3&resp4=$resp4&resp5=$resp5&resp6=$resp6&resp7=$resp7&resp8=$resp8&resp9=$resp9&resp10=$resp10';
@@ -145,6 +151,7 @@
     <!DOCTYPE html>
     <html lang="pt-br">
       <head>
+      	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <title>Título da página</title>
         <meta charset="utf-8">
@@ -158,11 +165,12 @@
 	    		font-family: sans-serif;
     		}
         	#pegageral{
-	    		width: 700px;
+	    		width: 60%;
 	    		margin: 0 auto;
 	    		background-color: #004749;
 	    		color: white;
 	    		margin-top: 30px;
+	    		padding: 20px;
     		}
     		#resp{
     			margin: 50px;
@@ -171,7 +179,7 @@
     			color: #f7dba7;
     		}
     		#img{
-    			width: 300px;
+    			width: 200px;
     		}
     		#titulo{
     			margin-left: 6%;

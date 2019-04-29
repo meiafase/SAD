@@ -10,16 +10,11 @@
 			$agree = $v['agree'];
 			$disagree = $v['disagree'];
 		}
-		echo $agree;
-		echo "<br>";
-		echo $disagree;
-		echo "<br>";
-		
 		$acrescenta2 = $disagree + 1;
 		
-		$xesque = ($acrescenta2 + $agree);
+		$xesque = ($agree + $acrescenta2);
 
-		$dale = 100 * $acrescenta2 / $xesque;
+		$dale = 100 * $agree / $xesque;
 
 	$sql = "UPDATE resultado_tb 
         SET
@@ -29,5 +24,6 @@
 	$sad = $fusca -> prepare($sql);
 	$sad -> execute();
 	$fusca = NULL;
-		
+
+	header("location: pgagradece.php");
 ?>

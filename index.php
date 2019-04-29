@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>Celular</title>
+		<title>SAD-Celular</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
 
 	<meta charset="utf-8">
 	<?php
 			   if(ISSET($_POST['enviarandroid'])){
-				///capturando os valores 
+				//capturando os valores 
 				$id    		= "";
 				$sistema	= $_POST["sistema"];
 				$resp1		= $_POST["perq1"];
@@ -43,9 +44,9 @@
 			margin: 0;
 		}
 		body{
-			background-color: #eee;
-			font-family: sans-serif;
-		}
+	    	background-color: #df2935;
+	    	font-family: sans-serif;
+    	}
 		.divs label{
 			padding: 10px;
 			margin-bottom: 20px;
@@ -54,7 +55,6 @@
 		}
 		.card {
 		  border-radius: 2px;
-		  height: 750px;
 		}
 		.card-1 {
 		  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -72,7 +72,8 @@
 			margin-left: 3%;
 		}
 		#globa{
-			background-color: #5DB7DE;
+			background-color: #004749;
+			color: white;
 			font-size: 30px;
 			padding: 30px;
 		}
@@ -137,6 +138,8 @@
 		}
 		#enviarandroid{
 			display: none;
+			width: 230px;
+			margin: 0 auto;
 		}
 	</style>
 	<script>
@@ -254,8 +257,8 @@
 		<div id="globa"  class="card card-1">
 			<div id="div" class="divs">
 				<label>1) Você prefere Android ou IOS?</label><br>
-				<input type="radio" id="sistema" name="sistema" value="10" onclick="android()"required>Android</input><br>
-				<input type="radio" id="sistema" name="sistema" value="100" onclick="android()" required>IOS</input><br>
+				<input type="radio" id="sistema" name="sistema" value="10" onclick="android()"required> Android</input><br>
+				<input type="radio" id="sistema" name="sistema" value="100" onclick="android()" required> IOS</input><br>
 				
 			</div>
 			
@@ -285,7 +288,7 @@
 				<input type="radio" name="perq3" value="2" class="input-dominio"> Não</input><br>
 				<input type="radio" name="perq3" value="3" class="input-dominio"> Talvez</input><br>
 				<input type="radio" name="perq3" value="4" class="input-dominio"> Sim</input><br>
-				<input type="radio" name="perq3" value="5" class="input-dominio"> Muitooooooooo!!!!!!!!!!!</input><br><br>
+				<input type="radio" name="perq3" value="5" class="input-dominio"> Muito!</input><br><br>
 				
 				<input type="button" value="Próximo->" id="" onclick="prox3()" class="btn btn-info">
 			</div>
@@ -363,7 +366,7 @@
 			
 			</div>
 				
-				<input type="submit" value="Enviar" id="enviarandroid" name="enviarandroid" class="btn btn-success">
+				<input type="submit" value="Finalizar" id="enviarandroid" name="enviarandroid" class="btn btn-success">
 			</div>
 		</form>
 	

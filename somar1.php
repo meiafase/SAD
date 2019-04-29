@@ -14,8 +14,7 @@
 		
 		$xesque = ($acrescenta + $disagree);
 
-		$dale = 100 * $acrescenta / $xesque;
-		
+		$dale = 100 * $acrescenta / $xesque;	
 
 	$sql = "UPDATE resultado_tb 
         SET
@@ -25,6 +24,7 @@
 	$sad = $fusca -> prepare($sql);
 	$sad -> execute();
 	$fusca = NULL;
+
+	header("location: pgagradece.php");
 		
-	echo $media;
 ?>

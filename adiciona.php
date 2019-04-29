@@ -1,52 +1,32 @@
 <?php
-		$resp1					= $_GET["resp1"];
-		$resp2					= $_GET["resp2"];
-		$resp3					= $_GET["resp3"];
-		$resp4					= $_GET["resp4"];
-		$resp5					= $_GET["resp5"];
-		$resp6					= $_GET["resp6"];
-		$resp7					= $_GET["resp7"];
-		$resp8					= $_GET["resp8"];
-		$resp9					= $_GET["resp9"];
-		$resp10					= $_GET["resp10"];
 		$resp_cntd 				= $_GET['resp_cntd'];
 
 	if(ISSET($_POST['enviar'])){
 		$id    		= "";
-		$resp1					= $_GET["resp1"];
-		$resp2					= $_GET["resp2"];
-		$resp3					= $_GET["resp3"];
-		$resp4					= $_GET["resp4"];
-		$resp5					= $_GET["resp5"];
-		$resp6					= $_GET["resp6"];
-		$resp7					= $_GET["resp7"];
-		$resp8					= $_GET["resp8"];
-		$resp9					= $_GET["resp9"];
-		$resp10					= $_GET["resp10"];
 		$sistema_operacional	= $_POST["sistema_operacional"];
 		$modelo_cllr			= $_POST["modelo_cllr"];
 		$resp_cntd 				= $_GET['resp_cntd'];
+        $novo_nome				= $_GET["arquivo"];
+        $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
+        $novo_nome = md5(time()) . $extensao;
+        $blx = $_FILES["arquivo"];
+        $tmp_doc = $blx['tmp_name'];
+        move_uploaded_file($tmp_doc,'upload/'.$novo_nome);
 
 	$sql =  "INSERT INTO 
 			resultado_tb 
 			VALUES
-				  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				  (?, ?, ?, ?, ?, ?, ?, ?)";
 				include "conexao.php";
 			$sistemas = $fusca -> prepare($sql);
-			$sistemas -> execute(array($id, $resp1, $resp2, $resp3, $resp4, $resp5, $resp6, $resp7, $resp8, $resp9, $resp10, $sistema_operacional, $modelo_cllr, $resp_cntd, null, null, null));
+			$sistemas -> execute(array($id, $sistema_operacional, $modelo_cllr, $resp_cntd, 1, null, 100, $novo_nome));
 
 			if($sql){			
-				echo "<script> alert('Obrigado pela colaboração ;D'); 
-				window.location.href = 'pgagradece.php';
-				</script>";
-
-
+				echo "<script>
+					  	window.location.href = 'pgagradece.php';
+					  </script>";
 			}
-
-
 	}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -74,13 +54,16 @@
 	</style>
   </head>
   <body>
-  	<form action="#" method="POST">
+  	<form action="#" method="POST" enctype="multipart/form-data">
   		<div id="dale">
 		    <label>Digite o sistema operacional do celular:</label><br>
 		    <input type="text" name="sistema_operacional" id="" class="form-control" required></input><br><br>
 
 		    <label>Digite o modelo do celular:</label><br>
 		    <input type="text" name="modelo_cllr" id="" class="form-control" required></input><br>
+      
+            <label for="imagem">Imagem:</label><br><br>
+            Arquivo: <input type="file" required name="arquivo"><br><br>
 		    <input type="submit" name="enviar" id="" value="Enviar" ></input>
 		    <input type="button" name="" id="" value="Cancelar" onclick="cancela()"></input>
 		</div>
