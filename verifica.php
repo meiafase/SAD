@@ -33,11 +33,10 @@
 		echo "<br>";
 		echo "<br>";
 
-		echo "<h3>Agora nos diga qual sujestão você mais gostou.</h3>";
+		echo "<h3>Agora nos diga qual sugestão você mais gostou.</h3>";
 		echo "<br>";
 		echo "<br>";
 		echo "<br>";
-		echo "--------------------------------------------------------------------------------------------------------";
 
 		?></div><?php
 		?><div id="resp"><?php
@@ -101,12 +100,12 @@
 
 
 
+		/*<button id='nao'onclick='addotro()' class='btn btn-waring'>Não gostei</button>*/
 
 
-		echo"<h2>Gostou da sujestão?</h2><br>
+		echo"<h2>Gostou da sugestão?</h2><br>
 		<button id='sim' onclick='sim()' class='btn btn-success'>Gostei</button>
 		<button id='nao'onclick='nao()' class='btn btn-danger'>Não gostei</button>
-		<button id='nao'onclick='addotro()' class='btn btn-waring'>Não gostei</button>
 		<script>	
 		function sim(){
 				window.location.href = 'somar1.php?id_resultado=$id_resultado';
@@ -122,7 +121,7 @@
 		echo "<br>";
 		echo "<br>";
 		echo "<br>";
-		echo "--------------------------------------------------------------------------------------------------------------------";
+		echo "<br>";
 		echo "<br>";
 		echo "<br>";
 		echo "<br>";
@@ -161,7 +160,7 @@
         		margin: 0px;
         	}
         	body{
-	    		background-color: #df2935;
+	    		background-color: #ff4444;
 	    		font-family: sans-serif;
     		}
         	#pegageral{
@@ -171,6 +170,10 @@
 	    		color: white;
 	    		margin-top: 30px;
 	    		padding: 20px;
+                border-radius: 30px;
+                border-style: solid;
+                border-width: 5px;
+                border-color: gray;
     		}
     		#resp{
     			margin: 50px;

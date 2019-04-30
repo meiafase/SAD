@@ -32,6 +32,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+      <script>
+
+		function cancela(){
+			window.location.href = "pgagradece.php";
+		}
+        
+        function sube(){
+			alert ("Celular cadastrado com sucesso");
+		}
+	</script>
     <title></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -41,7 +51,7 @@
     		margin: 0;
     	}
     	body{
-    		background-color: #df2935;
+    		background-color: #ff4444;
     		font-family: sans-serif;
     	}
     	#dale{
@@ -50,14 +60,21 @@
     		margin: 0 auto;
     		padding: 30px;
     		color: white;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 5px;
+            border-color: gray;
     	}
 	</style>
   </head>
   <body>
+      <br>
+      <br>
+      <br>
   	<form action="#" method="POST" enctype="multipart/form-data">
   		<div id="dale">
 		    <label>Digite o sistema operacional do celular:</label><br>
-		    <input type="text" name="sistema_operacional" id="" class="form-control" required></input><br><br>
+		    <input type="text" name="sistema_operacional" id="" class="form-control" required></input><br>
 
 		    <label>Digite o modelo do celular:</label><br>
 		    <input type="text" name="modelo_cllr" id="" class="form-control" required></input><br>
@@ -65,17 +82,11 @@
 			<label>Nos diga o porque você escolheu esse celular!</label><br>
 		    <input type="text" name="desc_cllr" id="" class="form-control" required></input><br>
       
-            <label for="imagem">Imagem:</label><br><br>
-            Arquivo: <input type="file" required name="arquivo"><br><br>
-		    <input type="submit" name="enviar" id="" value="Enviar" ></input>
-		    <input type="button" name="" id="" value="Cancelar" onclick="cancela()"></input>
+            <label for="imagem">selecione a imagem que condiz com o aparelho:</label><br>
+            <input type="file" required name="arquivo"><br><br>
+		    <input type="submit" class="btn btn-success" name="enviar" id="" value="Enviar" onclick="sube()"></input>
+		    <input type="button" class="btn btn-danger" name="" id="" value="Cancelar" onclick="cancela()"></input>
 		</div>
 	</form>
-	<script>
-
-		function cancela(){
-			window.location.href = "pgagradece.php";
-		}
-	</script>
   </body>
 </html>

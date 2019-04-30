@@ -45,7 +45,7 @@
 		}
 		body
         {
-	    	background-color: #df2935;
+	    	background-color: #ff4444;
 	    	font-family: sans-serif;
     	}
 		.divs label
@@ -85,6 +85,10 @@
             display: none;
 			font-size: 30px;
 			padding: 30px;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 5px;
+            border-color: gray;
 		}
 		#img1
         {
@@ -176,7 +180,7 @@
             width: 90%;
             padding: 50px;
             margin: 0 auto;
-            height: 650px;
+            height: 750px;
             background-color: #004749;
             border-radius: 30px;
             border-style: solid;
@@ -203,6 +207,17 @@
             bottom: 15%;
             text-align: center;
             font-size: 55px; 
+        }
+        #ojo
+        {
+            color: white;
+            position: absolute;
+            left: 50%;
+            width: 300px;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            text-align: center;
+            font-size: 55px;
         }
 	</style>
 	<script>
@@ -323,16 +338,17 @@
 	<body onload="inicio()"><br>
         <div id="tela">
         <div id="letras">
-                Sistema de Apoio de Decisão Celulares
+                Sistema de Apoio a Decisão - Celulares
         </div>
+            <img id="ojo" src="imgs/teste.png"></img>
             <input type="button" onclick="comec()" value="Começar SAD" id="buta" class="btn btn-success">
         </div>
 		<form action="" method="POST">
 		<div id="globa"  class="card card-1">
 			<div id="div" class="divs">
-				<label>1) Você prefere Android ou IOS?</label><br>
-				<input type="radio" id="sistema" name="sistema" value="10" onclick="android()"required> Android</input><br>
-				<input type="radio" id="sistema" name="sistema" value="100" onclick="android()" required> IOS</input><br>
+				<label>Você prefere Android ou IOS?</label><br>
+				<input type="radio" id="sistema" name="sistema" value="10" class="input-dominio" onclick="android()"required> Android</input><br>
+				<input type="radio" id="sistema" name="sistema" value="100" class="input-dominio" onclick="android()" required> IOS</input><br>
 				
 			</div>
 			
@@ -380,11 +396,11 @@
 			
 			<div id="div5" class="divs">
 				<label>5) Qual a melhor opção do tamanho da tela para você?</label><br>
-				<input type="radio" name="perq5" value="1" class="input-dominio"> 4.5 Polegadas</input>
+				<input type="radio" name="perq5" value="1" class="input-dominio"> 4.0 Polegadas</input>
 				<input type="radio" name="perq5" value="2" class="input-dominio"> 4.7 Polegadas</input>
-				<input type="radio" name="perq5" value="3" class="input-dominio"> 5.0 Polegadas</input>
-				<input type="radio" name="perq5" value="4" class="input-dominio"> 5.5 Polegadas</input>
-				<input type="radio" name="perq5" value="5" class="input-dominio"> 6.2 Polegadas</input><br><br>
+				<input type="radio" name="perq5" value="3" class="input-dominio"> 5.5 Polegadas</input>
+				<input type="radio" name="perq5" value="4" class="input-dominio"> 6.1 Polegadas</input>
+				<input type="radio" name="perq5" value="5" class="input-dominio"> 6.5 Polegadas</input><br><br>
 				
 				<div id="polega">
 					<div id="1">
