@@ -43,104 +43,167 @@
 			padding: 10px;
 			margin: 0;
 		}
-		body{
+		body
+        {
 	    	background-color: #df2935;
 	    	font-family: sans-serif;
     	}
-		.divs label{
+		.divs label
+        {
 			padding: 10px;
 			margin-bottom: 20px;
 		}
-		.far{
+		.far
+        {
 		}
-		.card {
+		.card 
+        {
 		  border-radius: 2px;
 		}
-		.card-1 {
+		.card-1 
+        {
 		  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 		  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 		}
 
-		.card-1:hover {
+		.card-1:hover 
+        {
 		  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 		}
-		.input-dominio{
+		.input-dominio
+        {
 			width: 20px;
 			height: 25px;
 			cursor: pointer;
 			margin-bottom: 30px;
 			margin-left: 3%;
 		}
-		#globa{
+		#globa
+        {
 			background-color: #004749;
 			color: white;
+            display: none;
 			font-size: 30px;
 			padding: 30px;
 		}
-		#img1{
+		#img1
+        {
 			height: 130px;
 		}
-		#img2{
+		#img2
+        {
 			height: 150px;
 		}
-		#img3{
+		#img3
+        {
 			height: 200px;
 		}
-		#img4{
+		#img4
+        {
 			height: 250px;
 		}
-		#img5{
+		#img5
+        {
 			height: 300px;
 		}
-		.pol{
+		.pol
+        {
 			margin-left: 6%;
 		}
-		#polega a :hover{
+		#polega a :hover
+        {
 			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 			cursor: pointer;
 		}
-		#btn{
+		#btn
+        {
 			width: 150px;
 			margin-top: 10px;
 		}
-		#div1{
+		#div1
+        {
 			display: none;
 		}
-		#div2{
+		#div2
+        {
 			display: none;
 		}
-		#div3{
+		#div3
+        {
 			display: none;
 		}
-		#div4{
+		#div4
+        {
 			display: none;
 		}		
-		#div5{
+		#div5
+        {
 			display: none;
 		}		
-		#div6{
+		#div6
+        {
 			display: none;
 		}		
-		#div7{
+		#div7
+        {
 			display: none;
 		}
-		#div8{
+		#div8
+        {
 			display: none;
 		}
-		#div9{
+		#div9
+        {
 			display: none;
 		}
-		#div10{
+		#div10
+        {
 			display: none;
 		}
-		#enviarios{
+		#enviarios
+        {
 			display: none;
 		}
-		#enviarandroid{
+		#enviarandroid
+        {
 			display: none;
 			width: 230px;
 			margin: 0 auto;
 		}
+        #tela
+        {
+            display: block;
+            width: 90%;
+            padding: 50px;
+            margin: 0 auto;
+            height: 650px;
+            background-color: #004749;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 5px;
+            border-color: gray;
+        }
+        #letras
+        {
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            top: 20%;
+            text-align: center;
+            font-size: 55px;
+            
+        }
+        #buta
+        {
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            bottom: 15%;
+            text-align: center;
+            font-size: 55px; 
+        }
 	</style>
 	<script>
 		function inicio(){
@@ -172,7 +235,12 @@
 		}
 
 		
-		function prox2(){
+		function comec(){
+			document.getElementById('tela').style.display = "none";
+			document.getElementById('globa').style.display = "block";
+		}
+        
+        function prox2(){
 			document.getElementById('div1').style.display = "none";
 			document.getElementById('div2').style.display = "none";
 			document.getElementById('div3').style.display = "block";
@@ -253,6 +321,12 @@
 	</script>
 	</head>
 	<body onload="inicio()"><br>
+        <div id="tela">
+        <div id="letras">
+                Sistema de Apoio de Decisão Celulares
+        </div>
+            <input type="button" onclick="comec()" value="Começar SAD" id="buta" class="btn btn-success">
+        </div>
 		<form action="" method="POST">
 		<div id="globa"  class="card card-1">
 			<div id="div" class="divs">

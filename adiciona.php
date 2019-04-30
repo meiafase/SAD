@@ -6,6 +6,7 @@
 		$sistema_operacional	= $_POST["sistema_operacional"];
 		$modelo_cllr			= $_POST["modelo_cllr"];
 		$resp_cntd 				= $_GET['resp_cntd'];
+		$desc_cllr				= $_POST['desc_cllr'];
         $novo_nome				= $_GET["arquivo"];
         $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
         $novo_nome = md5(time()) . $extensao;
@@ -16,10 +17,10 @@
 	$sql =  "INSERT INTO 
 			resultado_tb 
 			VALUES
-				  (?, ?, ?, ?, ?, ?, ?, ?)";
+				  (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				include "conexao.php";
 			$sistemas = $fusca -> prepare($sql);
-			$sistemas -> execute(array($id, $sistema_operacional, $modelo_cllr, $resp_cntd, 1, null, 100, $novo_nome));
+			$sistemas -> execute(array($id, $sistema_operacional, $modelo_cllr, $resp_cntd, $desc_cllr, 1, 0, 100, $novo_nome));
 
 			if($sql){			
 				echo "<script>
@@ -45,7 +46,6 @@
     	}
     	#dale{
     		width: 500px;
-    		height: 300px;
     		background-color: #004749;
     		margin: 0 auto;
     		padding: 30px;
@@ -61,6 +61,9 @@
 
 		    <label>Digite o modelo do celular:</label><br>
 		    <input type="text" name="modelo_cllr" id="" class="form-control" required></input><br>
+			
+			<label>Nos diga o porque você escolheu esse celular!</label><br>
+		    <input type="text" name="desc_cllr" id="" class="form-control" required></input><br>
       
             <label for="imagem">Imagem:</label><br><br>
             Arquivo: <input type="file" required name="arquivo"><br><br>

@@ -42,10 +42,13 @@
 		?></div><?php
 		?><div id="resp"><?php
 		foreach($sad as $v){
-			$id_resultado	=$v ['id_resultado'];
-			$modelo_cllr = $v['modelo_cllr'];
+			$id_resultado		= $v ['id_resultado'];
+			$desc 				= $v['desc'];
+			$modelo_cllr =$v['modelo_cllr'];
 			$nome_cllr = $v['nome_cllr'];
 			$novo_nome = $v['arquivo'];
+			$agree  =$v['agree'];
+			$disagree  =$v['disagree'];
 			
 		echo "<h2>Oque achou desse?</h2>";
 		echo "<br>";
@@ -56,38 +59,31 @@
 		?><span id="cllr"><?php
         echo "<img src='upload/$novo_nome' id='img'>";
         ?></span><?php
-        ?><span id="desc" style="float: right; width: 60%;background-color: red;"><?php
-        	echo "<p><h5> descrição do celular. <h5></p>";
+        ?><span id="desc" style="float: right; width: 60%;"><?php
+        	echo "<p><h5> $desc<h5></p>";
         ?></span><?php
 
 		echo "<br>";
 
-		include "conexao.php";
-	$sql1 = "SELECT agree, disagree, COUNT(agree) AS quantidade, COUNT(disagree) AS quantidade FROM resultado_tb GROUP BY agree, disagree";
-	$sad = $fusca -> prepare($sql1);
-	$sad -> execute();
-
-	$x = 1;
-	 foreach($sad as $v){
-		 $bola[$x] = $v['quantidade'];
 	 
 	 echo "<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
-    <script type='text/javascript'>
+		<script type='text/javascript'>
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Agree',     ".@$bola[1]."],
-          ['Disagree',     ".@$bola[2]."],
+		  ['Task', 'Hours per Day'],
+          ['Agree',     ".$agree."],
+          ['Disagree',     ".$disagree."]
 
         ]);
 
         var options = {
           title: 'Porcentagens de aceitação',
-          backgroundColor: 'transparent'
+		  backgroundColor: 'white',
+		  colors: ['green', '#f00']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -95,12 +91,12 @@
         chart.draw(data, options);
       }
     </script>";
-	  $x++;
-	  }?>
-		</div>
 		
-		    <div id="piechart"></div>
-
+	  ?>
+		</div>
+		<center>
+		    <div id="piechart" style="width: 700px; height: 400px;"></div>
+		</center>
 <?php
 
 
@@ -110,12 +106,16 @@
 		echo"<h2>Gostou da sujestão?</h2><br>
 		<button id='sim' onclick='sim()' class='btn btn-success'>Gostei</button>
 		<button id='nao'onclick='nao()' class='btn btn-danger'>Não gostei</button>
+		<button id='nao'onclick='addotro()' class='btn btn-waring'>Não gostei</button>
 		<script>	
 		function sim(){
 				window.location.href = 'somar1.php?id_resultado=$id_resultado';
 			}
-			function nao(){
+        function nao(){
 				window.location.href = 'soma2.php?id_resultado=$id_resultado';
+			}
+        function addotro(){
+				window.location.href = 'adiciona.php?resp_cntd=$resp_cntd';
 			}
 			
 		</script>";	
@@ -179,7 +179,7 @@
     			color: #f7dba7;
     		}
     		#img{
-    			width: 200px;
+    			width: 300px;
     		}
     		#titulo{
     			margin-left: 6%;
